@@ -26,6 +26,7 @@ function BookForm() {
     };
 
     const handleSubmit = async (event) => {
+        event.preventDefault()
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
             event.preventDefault();
@@ -35,7 +36,7 @@ function BookForm() {
 
         // Dërgo të dhënat në backend
         try {
-            await axios.post('http://localhost:5000/api/appointments', formData);
+            await axios.post('http://localhost:5500/appointments', formData);
             alert("Appointment booked successfully!");
         } catch (error) {
             alert("There was an error booking the appointment.");
